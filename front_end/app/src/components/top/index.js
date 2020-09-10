@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { AuthSelector } from '../header';
+import Footer from './footer';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -43,23 +44,26 @@ const Toppage = () => {
   };
 
   const moveLoginPage = () => {
-    history.push('/login');
+    history.push('/signin');
   };
 
   return (
-    <div className={classes.image}>
-      <div  className={classes.root}>
-        <div>
-          <h2>「好み」でつながるコミュニケーションツール</h2>
-          <h1>TheaTalk</h1>
+    <div>
+      <div className={classes.image}>
+        <div  className={classes.root}>
+          <div>
+            <h2>「好み」でつながるコミュニケーションツール</h2>
+            <h1>TheaTalk</h1>
+          </div>
+          <Button className={classes.buttonSignUp} onClick={moveSignupPage} variant="contained" >
+            Sign up
+          </Button>
+          <Button className={classes.buttonLogin} onClick={moveLoginPage} variant="contained">
+            Login
+          </Button>
         </div>
-        <Button className={classes.buttonSignUp} onClick={moveSignupPage} variant="contained" >
-          Sign up
-        </Button>
-        <Button className={classes.buttonLogin} onClick={moveLoginPage} variant="contained">
-          Login
-        </Button>
       </div>
+      <Footer />
     </div>
   );
 };
