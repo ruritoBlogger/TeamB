@@ -6,11 +6,13 @@ COPY ./webpack.config.js /app/webpack.config.js
 COPY ./package.json /app/package.json
 COPY ./.babelrc /app/.babelrc
 COPY ./.eslintrc.js /app/.eslintrc.js
+COPY .env /app/.env
 
 RUN yarn init -y
 RUN yarn install
 
 ENV CHOKIDAR_USEPOLLING=true
+ADD ./.env /app/.env
 
 CMD ["./node_modules/.bin/webpack-dev-server", "--hot --watch-content-base"]
 

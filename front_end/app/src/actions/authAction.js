@@ -56,11 +56,6 @@ export const signupFailure = (error) => ({
   type: SIGNUP_FAILURE,
   error,
 });
-// Hiranuma
-export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
-export const logout = () => ({
-  type: LOGOUT_REQUEST,
-});
 
 // TODO: 実際のapiを叩く箇所を実装する
 // TODO: redux-thunkに置き換える
@@ -74,7 +69,7 @@ export const logout = () => ({
 export const login = (user, history) => (dispatch) => {
   dispatch(loginRequest());
   // return axios.post('http://localhost:8000/auth/login', user)
-  return axios.post('http://localhost:5000/api/v1/login', user)
+  return axios.post('/api/v1/login', user)
     .then((res) => {
       localStorage.setItem('jwt', res.data.token);
       localStorage.setItem('id', res.data.data.id);
@@ -95,7 +90,7 @@ export const login = (user, history) => (dispatch) => {
  */
 export const signup = (user, history) => (dispatch) => {
   dispatch(signupRequest());
-  return axios.post('http://localhost:5000/api/v1/users', user)
+  return axios.post('/api/v1/users', user)
     .then((res) => {
       localStorage.setItem('jwt', res.data.token);
       localStorage.setItem('id', res.data.data.user.id);

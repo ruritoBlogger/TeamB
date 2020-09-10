@@ -76,7 +76,7 @@ export const postUserTagFailure = (error) => ({
 
 export const getTags = (token) => (dispatch) => {
   dispatch(getTagsRequest());
-  return axios.get('http://localhost:5000/api/v1/tags', {
+  return axios.get('/api/v1/tags', {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -93,7 +93,7 @@ export const getUserTags = (token, id) => (dispatch, getState) => {
   const user_id = id === null ? store.auth.id : id;
   const user_token = token === null ? store.auth.token : token;
   dispatch(getUserTagsRequest());
-  return axios.get(`http://localhost:5000/api/v1/user_tags/${user_id}`, {
+  return axios.get(`/api/v1/user_tags/${user_id}`, {
     headers: {
       Authorization: `Bearer ${user_token}`,
     },
@@ -108,7 +108,8 @@ const getHeaders = (token) => ({ Authorization: `Bearer ${token}` });
 
 export const postTag = (token, tag, id) => (dispatch) => {
   dispatch(postTagRequest());
-  return axios.post('http://localhost:5000/api/v1/tags', tag, {
+  let tmp;
+  return axios.post('/api/v1/tags', tag, {
     headers: getHeaders(token),
   })
     .then((res) => {
@@ -129,7 +130,7 @@ export const postUserTag = (token, id, tag) => (dispatch) => {
     }
   });
   console.log(send_tag);
-  return axios.post('http://localhost:5000/api/v1/user_tags', send_tag, {
+  return axios.post('/api/v1/user_tags', send_tag, {
     headers: getHeaders(token),
   })
     .then((res) => {

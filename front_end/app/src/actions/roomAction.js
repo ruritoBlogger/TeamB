@@ -85,7 +85,7 @@ export const enterRoom = (token, history, room) => (dispatch) => {
       room_id: room.id
     }
   });
-  return axios.post('http://localhost:5000/api/v1/room_users', id, {
+  return axios.post('/api/v1/room_users', id, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -102,7 +102,7 @@ export const enterRoom = (token, history, room) => (dispatch) => {
 
 export const exitRoom = (token) => (dispatch) => {
   dispatch(existRoomRequest());
-  return axios.get('http://localhost:5000/api/v1/room_users/leave', {
+  return axios.get('/api/v1/room_users/leave', {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -115,7 +115,7 @@ export const exitRoom = (token) => (dispatch) => {
 
 export const getRooms = (token) => (dispatch) => {
   dispatch(getRoomsRequest());
-  return axios.get('http://localhost:5000/api/v1/rooms', {
+  return axios.get('/api/v1/rooms', {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -158,7 +158,7 @@ export const searchRooms = (tag_id) => (dispatch, getState) => {
 export const searchUserRooms = () => (dispatch, getState) => {
   const store = getState();
   dispatch(searchRoomsRequest());
-  return axios.get(`http://localhost:5000/api/v1/user_room_tags/${store.auth.id}`, {
+  return axios.get(`/api/v1/user_room_tags/${store.auth.id}`, {
     headers: {
       Authorization: `Bearer ${store.auth.token}`,
     },
