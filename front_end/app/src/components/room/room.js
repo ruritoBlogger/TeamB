@@ -28,6 +28,9 @@ const useStyles = makeStyles(() => ({
     margin: 10,
   },
   botton: {
+    "padding-left": "25px",
+    "padding-right": "17px",
+    textTransform: 'none',
     marginTop: 20,
     color: 'white',
     backgroundColor: '#3636F0',
@@ -107,7 +110,7 @@ const Room = () => {
       </Grid>
       <Grid items xs={2}>
       <div>
-        <Button onClick={handleOut} className={classes.botton}>ルーム退室 <ExitIcon/></Button>
+        <Button onClick={handleOut} className={classes.botton}>Exit<ExitIcon/></Button>
       </div>
       </Grid>
       </Grid>
