@@ -41,7 +41,7 @@ const Auth = (props) => {
   if (!auth.isLoading && !auth.isLoggedIn) {
     // TODO: useHistoryを用いて、ブラウザバックなどに対応できるか調査
     // TODO: toppageに飛ばした後、ログインしてと通知を表示させる
-    history.push('/signin');
+    history.push('/toppage');
   }
 
   if (auth.isLoading) {
