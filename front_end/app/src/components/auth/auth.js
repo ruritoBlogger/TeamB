@@ -8,6 +8,7 @@ import { useLocation, useHistory } from 'react-router-dom';
 import { reload } from '../../actions/authAction';
 import { roomReload } from '../../actions/roomAction';
 import { getUserTags } from '../../actions/tagAction'
+import ClipLoader from "react-spinners/ClipLoader";
 
 /**
  * stateからログインしているかどうかを抽出している
@@ -46,7 +47,12 @@ const Auth = (props) => {
 
   if (auth.isLoading) {
     return (
-      <p> loading...... </p>
+      <ClipLoader
+        css={override}
+        size={150}
+        color={"#123abc"}
+        loading={this.state.loading}
+      />
     );
   }
   return (
