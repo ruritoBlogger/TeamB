@@ -46,6 +46,7 @@ const useStyles = makeStyles ((theme)=>({
     textAlign: 'center',
   },
   button: {
+    textTransform: "none",
     color: 'white',
     backgroundColor: '#3636F0',
     marinLeft:20,
@@ -167,18 +168,18 @@ const Tags = () => {
             <div className={classes.panel}>
               <TextField
                 name="name"
-                label="Input"
+                label="tag name"
                 inputRef={register}
                 variant="filled"
               />
             </div>
             <div className={classes.panel}>
               <Button type="submit" className={classes.button}>
-                追加
+                Add
               </Button>
             </div>
           </form>
-          <p className={classes.left}>Tags</p>
+          <p className={classes.left}>Your Tags</p>
           <Paper elevation={0} variant="outlined" className={classes.tagPanel, classes.left}>
             <TagList {...tags} />
           </Paper>

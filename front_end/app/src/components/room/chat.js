@@ -24,6 +24,7 @@ const useStyles = makeStyles(() =>({
     margin:5,
   },
   botton:{
+    textTransform: "none",
     marginTop:10,
     backgroundColor: '#f3f3f3',
     width: 70,
@@ -84,7 +85,7 @@ const Chat = () => {
         <Grid container>
             <TextField
               name="msg"
-              label="チャット内容"
+              label="content"
               inputRef={register}
               fullWidth
             />
@@ -101,7 +102,7 @@ const Chat = () => {
         })()}
         <Grid container className={classes.submitPanel}>
             <Button type="submit" className={classes.botton}>
-              送信
+              Send
               <SendIcon className={classes.sendIcon}/>
               </Button>
         </Grid>
