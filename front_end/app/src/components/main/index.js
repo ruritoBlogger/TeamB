@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 30,
   },
   enterRoom: {
+    textTransform: "none",
     padding: 2,
     color: "white",
     "background-color": "#F03636",
@@ -63,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
     'margin-left': '300',
   },
   searchButton: {
+    textTransform: "none",
     "backgroundColor": "#1e90ff",
   },
   eachCard: {
@@ -101,7 +103,7 @@ export const RoomList = (rooms) => {
                       title={room.name}
                       subtitle={room.start_time}
                       actionIcon={
-                        <Button onClick={() => handleClick(index)} variant="contained" className={classes.enterRoom} >入室</Button>
+                        <Button onClick={() => handleClick(index)} variant="contained" className={classes.enterRoom} >Join</Button>
                       }
                     />
                   </GridListTile>
@@ -163,7 +165,7 @@ export const Main = () => {
               return result;
             })()}
           </Select>
-          <Button type="submit" variant="contained" color="primary" className={classes.searchButton}>検索<SearchIcon color="white" /></Button>
+          <Button type="submit" variant="contained" color="primary" className={classes.searchButton}>Search<SearchIcon color="white" /></Button>
         </FormControl>
       </form>
       </div>
