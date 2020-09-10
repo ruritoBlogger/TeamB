@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     'background-color': '#F03636',
   },
   link: {
+    "margin-left": 30,
     color: 'white',
     backgroundColor: '#F03636',
     cursor: "pointer",
